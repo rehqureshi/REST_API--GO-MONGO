@@ -8,3 +8,15 @@ type User struct {
 	Gender string        `json:"gender" bson:"gender"`
 	Age    int           `json:"age" bson:"age"`
 }
+
+func IsValidObjectId(id string) bool {
+	return bson.IsObjectIdHex(id)
+}
+
+func ToObjectId(id string) bson.ObjectId {
+	return bson.ObjectIdHex(id)
+}
+
+func NewObjectId() bson.ObjectId {
+	return bson.NewObjectId()
+}
